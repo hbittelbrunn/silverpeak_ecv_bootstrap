@@ -13,4 +13,4 @@ __pycache__/
 logging/
 
 # Virtual Environment
-.venv/
+.myvenv/
