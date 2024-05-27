@@ -174,7 +174,7 @@ def ec_assign_interfaces(ec, ifInfo: list):
                 green_text,
             )
         )
-        ec.request_reboot(applyBeforeReboot={"hostname": "eve-silverpeak"})
+        ec.request_reboot(apply_before_reboot={"hostname": "eve-silverpeak"})
     else:
         print("No reboot required")
 
