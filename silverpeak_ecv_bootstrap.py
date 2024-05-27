@@ -8,7 +8,7 @@ import colored
 import urllib3
 from colored import stylize
 from dotenv import load_dotenv
-from silverpeak_python_sdk import EdgeConnect
+from pyedgeconnect import EdgeConnect
 
 from silverpeak_ec_assign_orch import ec_assign_orch
 from silverpeak_ec_automap import ec_interface_map
@@ -26,7 +26,7 @@ def valid_and_reachable(ec_ip):
 
         if ping_check == 0:
             try:
-                ec = EdgeConnect(ec_ip)
+                ec = EdgeConnect(ec_ip, verify_ssl=False)
                 ec.login(user="admin", password="admin")
                 ec.logout()
                 return True

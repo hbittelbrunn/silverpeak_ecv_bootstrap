@@ -8,7 +8,7 @@ from colored import stylize
 from dotenv import load_dotenv
 
 # Helper for API interaction with Silver Peak Edge Connect
-from silverpeak_python_sdk import EdgeConnect
+from pyedgeconnect import EdgeConnect
 
 # Console text highlight color parameters
 red_text = colored.fg("red") + colored.attr("bold")
@@ -28,7 +28,7 @@ def ec_assign_orch(
     orch_check="n",
 ):
     print(tag)
-    ec = EdgeConnect(ec_ip)
+    ec = EdgeConnect(ec_ip, verify_ssl=False)
     ec.login(ec_user, ec_pass)
 
     # Retrieve current Orchestrator and Account configured on Edge Connect
