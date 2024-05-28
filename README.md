@@ -1,8 +1,8 @@
-# Silver Peak Edge Connect EVE-NG Bootsrap
-Quickly bootstrap a Silver Peak Virtual Edge Connect assigning a desired Orchestrator, registering with Account/Key, and assigning MAC addresses to interfaces (up to 9 total: mgmt0, wan/lan0-3).
+# Aruba Edge Connect EVE-NG Bootsrap
+Quickly bootstrap a Aruba Virtual Edge Connect assigning a desired Orchestrator, registering with Account/Key, and assigning MAC addresses to interfaces (up to 7 total: mgmt0, lan0-1, wan0-3).
 
 # Requirements
-- Leverages silverpeak_python_sdk for API calls to Edge Connect
+- Leverages [Pyedgeconnect](https://pyedgeconnect.readthedocs.io/en/latest/index.html) for API calls to Edge Connect
     - Included subscripts that can be individual called:
         - silverpeak_ec_assign_orch.py -- Function for assigning an Orchestrator and Account to an Edge Connect
         - silverpeak_ec_automap.py -- Function for assigning available MAC addresses to interfaces based on incrementing MAC's
@@ -15,18 +15,16 @@ Quickly bootstrap a Silver Peak Virtual Edge Connect assigning a desired Orchest
     | MAC | ECV Interface |
     | --- | --- |
     | 1 | mgmt0 |
-    | 2 | wan0 |
-    | 3 | lan0 |
-    | 4 | wan1 |
-    | 5 | lan1 |
+    | 2 | lan0 |
+    | 3 | lan1 |
+    | 4 | wan0 |
+    | 5 | wan1 |
     | 6 | wan2 |
-    | 7 | lan2 |
-    | 8 | wan3 |
-    | 9 | lan3 |
+    | 7 | wan3 |
 ___
 
 
-2. Assign MAC addresses in ascending order of Network Adapters on ESXi:
+2. Assign MAC addresses in ascending order of Network Adapters on ESXi (up to 9 interface):
 
     | Network Adapter | ECV Interface |
     | --- | --- |
