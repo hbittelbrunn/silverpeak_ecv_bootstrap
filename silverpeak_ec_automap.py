@@ -5,7 +5,7 @@ import time
 import colored
 from colored import stylize
 from dotenv import load_dotenv
-from silverpeak_python_sdk import EdgeConnect
+from pyedgeconnect import EdgeConnect
 from tqdm import tqdm
 
 from esxi_connector import EsxiHelper
@@ -48,14 +48,12 @@ def ec_increment_available_mac(ec):
     # logical ECV interface list
     ecv_interface_names = [
         "mgmt0",
-        "wan0",
         "lan0",
-        "wan1",
         "lan1",
+        "wan0",
+        "wan1",
         "wan2",
-        "lan2",
         "wan3",
-        "lan3",
     ]
 
     # List of interfaces to modify
@@ -176,14 +174,14 @@ def ec_assign_interfaces(ec, ifInfo: list):
                 green_text,
             )
         )
-        ec.request_reboot(applyBeforeReboot={"hostname": "eve-silverpeak"})
+        ec.request_reboot(apply_before_reboot={"hostname": "eve-silverpeak"})
     else:
         print("No reboot required")
 
 
 def ec_interface_map(ec_ip: str, vm_name: str = None):
 
-    ec = EdgeConnect(ec_ip)
+    ec = EdgeConnect(ec_ip, verify_ssl=False)
     ec.login(user="admin", password="admin")
 
     # Auto-map interfaces to MAC addresses on Edge Connect
@@ -215,7 +213,7 @@ if __name__ == "__main__":
         """
     )
 
-    ec = EdgeConnect(ec_ip)
+    ec = EdgeConnect(ec_ip, verify_ssl=False)
     ec.login(user="admin", password="admin")
 
     # Auto-map interfaces to MAC addresses on Edge Connect

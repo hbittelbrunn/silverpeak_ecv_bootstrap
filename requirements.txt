@@ -4,3 +4,4 @@ colored
 urllib3
 tqdm
 vmwc
+pyedgeconnect
